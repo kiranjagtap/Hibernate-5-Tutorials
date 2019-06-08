@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="list.mapping.example.Movie" table="MOVIE_MASTER">
+		<id name="movieId">
+			<generator class="increment"></generator>
+		</id>
+		<property name="movie"></property>
+
+		<list name="songs" cascade="all">
+			<key column="movieId"></key>
+			<index column="songIndex"></index>
+			<one-to-many class="list.mapping.example.Song" />
+		</list>
+	</class>
+
+	<class name="list.mapping.example.Song" table="SONG_MASTER">
+		<id name="songId" type="int" column="songId">
+			<generator class="increment" />
+		</id>
+		<property name="lyrics" column="LYRICS" />
+	</class>
+</hibernate-mapping>

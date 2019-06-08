@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="map.mapping.example.MovieMap" table="MOVIE_MAP_MASTER">
+		<id name="movieId">
+			<generator class="increment"></generator>
+		</id>
+		<property name="movie"></property>
+
+		<map name="persons" cascade="all" table="MOVIE_PERSON_MASTER">
+			<key column="movieId"></key>
+			<index column="ROLE" type="string"></index>
+			<element column="name" type="string" />
+		</map>
+	</class>
+
+</hibernate-mapping>
