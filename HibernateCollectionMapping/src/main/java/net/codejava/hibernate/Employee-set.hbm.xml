@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+          <hibernate-mapping>
+          <class name="net.codejava.hibernate.Employee" table="EMPLOYEE">
+          <id name="employeeId">
+          <generator class="increment"></generator>
+          </id>
+          <property name="employeeName"></property>
+           
+          <set name="phoneNumbers" table="EMP_PHONE_NUMBERS">
+          <key column="phoneid"></key>
+          <element column="phone_number" type="string"></element>
+          </set>
+           
+          </class>
+    
+           
+           
+          </hibernate-mapping>

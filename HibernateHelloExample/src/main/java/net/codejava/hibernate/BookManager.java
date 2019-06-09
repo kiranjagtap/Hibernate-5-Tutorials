@@ -29,8 +29,8 @@ public class BookManager {
 
 	protected void create() {
 		Book book1 = new Book();
-		book1.setTitle("Effective Structs");
-		book1.setAuthor("Vidya");
+		book1.setTitle("Effective Java");
+		book1.setAuthor("Sharma");
 		book1.setPrice(50.60f);
 
 		Session session = sessionFactory.openSession();
@@ -50,8 +50,8 @@ public class BookManager {
 	protected void read() {
 		Session session = sessionFactory.openSession();
 
-		long bookId = 17;
-		Book book = (Book) session.get(Book.class, bookId);
+		long bookId = 100;
+		Book book = (Book) session.load(Book.class, bookId);
 
 		System.out.println("Title: " + book.getTitle());
 		System.out.println("Author: " + book.getAuthor());
@@ -93,8 +93,8 @@ public class BookManager {
 		BookManager manager = new BookManager();
 		manager.setup();
 		//manager.delete();
+		//manager.create();
 		manager.read();
-		
 		//manager.delete();
 		
 		manager.exit();

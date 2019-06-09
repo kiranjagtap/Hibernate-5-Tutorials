@@ -13,8 +13,10 @@
      <property name = "hibernate.dialect">
          org.hibernate.dialect.MySQLDialect
       </property>
-      
-     <mapping class="net.codejava.hibernate.Book"></mapping>
+    <!--   <property name="hbm2ddl.auto">create</property>
+      update, alter delete
+ -->
+      <mapping class="net.codejava.hibernate.Book"></mapping>
     
   </session-factory>
 </hibernate-configuration>

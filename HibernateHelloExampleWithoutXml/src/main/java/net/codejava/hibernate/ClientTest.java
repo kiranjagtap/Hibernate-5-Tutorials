@@ -9,7 +9,7 @@ public class ClientTest {
 	    try(Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// Check MySQL database version
 			String sql = "select version()";
-			long bookId = 17;
+			long bookId = 1;
 			Book book = (Book) session.get(Book.class, bookId);
 
 			System.out.println("Title: " + book.getTitle());

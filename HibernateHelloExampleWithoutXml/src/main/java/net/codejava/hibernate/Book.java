@@ -1,12 +1,5 @@
 package net.codejava.hibernate;
 import javax.persistence.*;
-
-/**
- * Book.java
- * This class maps to a table in database.
- * @author www.codejava.net
- *
- */
  
 @Entity
 @Table(name = "book")
@@ -16,9 +9,9 @@ public class Book {
     private String author;
     private float price;
  
+
     public Book() {
     }
- 
     
     public Book(long id, String title, String author, float price) {
 		super();
@@ -27,9 +20,8 @@ public class Book {
 		this.author = author;
 		this.price = price;
 	}
-
-
-	@Id
+    
+    @Id
     @Column(name = "book_id")
     public long getId() {
         return id;

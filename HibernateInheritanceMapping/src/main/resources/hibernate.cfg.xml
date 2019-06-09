@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <!DOCTYPE hibernate-configuration PUBLIC 
+   "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/inheritancedemo?useSSL=false</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="hbm2ddl.auto">create</property>
+
+		<!-- Below are configuration files for inheritance type, to test just use 
+			one at a time and run Test class -->
+		<!-- <mapping resource="table/per/hierarchy/TablePerHierarchy.hbm.xml" /> 
+		<mapping resource="table/per/hierarchy/TablePerConcreteClass.hbm.xml" /> -->
+	
+			<mapping
+			resource="hibernate/inheritance/mapping/TablePerSubclass.hbm.xml" />
+
+	</session-factory>
+</hibernate-configuration>

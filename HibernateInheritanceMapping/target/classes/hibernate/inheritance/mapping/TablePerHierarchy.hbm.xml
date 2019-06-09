@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="hibernate.inheritance.mapping.Employee" table="emp_master"
+		discriminator-value="emp">
+		<id name="empId">
+			<generator class="increment"></generator>
+		</id>
+
+		<discriminator column="type" type="string"></discriminator>
+		<property name="name"></property>
+
+		<subclass name="hibernate.inheritance.mapping.SalesEmployee"
+			discriminator-value="sales_emp">
+			<property name="hrs"></property>
+			<property name="rates"></property>
+		</subclass>
+
+		<subclass name="hibernate.inheritance.mapping.WageEmployee"
+			discriminator-value="wage_emp">
+			<property name="sales"></property>
+			<property name="commission"></property>
+		</subclass>
+
+	</class>
+
+</hibernate-mapping>  
